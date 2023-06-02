@@ -1,0 +1,46 @@
+﻿<Window x:Class="DbApp.WindowLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DbApp"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="250" Width="400">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="20 0 20 0" />
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Height" Value="30" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="200" />
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="Margin" Value="20 4 20 4" />
+            <Setter Property="Width" Value="200" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Label Content="Авторизация" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+        <StackPanel Orientation="Vertical" Margin="40 20 40 0" Grid.Row="1">
+            <TextBlock Text="Логин" HorizontalAlignment="Center"/>
+            <TextBox x:Name="tbxLogin" Width="200"/>
+            <TextBlock Text="Пароль" HorizontalAlignment="Center"/>
+            <PasswordBox x:Name="psbx" Width="200"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                <TextBlock Text="Сервер" Margin="0 0 5 0"/>
+                <TextBox x:Name="tbxServer" Width="80"/>
+                <TextBlock Text="База данных" Margin="5 0 5 0"/>
+                <TextBox x:Name="tbxDB" Width="80"/>
+            </StackPanel>
+            
+            <Button x:Name="btnLogin" Content="Войти" Click="btnLogin_Click" MouseEnter="btnLogin_MouseEnter"/>
+        </StackPanel>
+    </Grid>
+</Window>

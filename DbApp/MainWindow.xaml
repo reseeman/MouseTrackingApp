@@ -1,0 +1,34 @@
+﻿<Window x:Class="DbApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DbApp"
+        mc:Ignorable="d"
+        Title="Главное окно" Height="250" Width="390" Loaded="Window_Loaded" MouseMove="Window_MouseMove" Closing="Window_Closing">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="20 8 20 8" />
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Height" Value="30" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <DataGrid AutoGenerateColumns="False" x:Name="mouseGrid" CanUserAddRows="False" ScrollViewer.IsDeferredScrollingEnabled="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding idMouse}" Header="ID" Width="30"/>
+                <DataGridTextColumn Binding="{Binding startPosition}" Header="Начальное" Width="120"/>
+                <DataGridTextColumn Binding="{Binding currentPosition}" Header="Текущее" Width="120"/>
+                <DataGridTextColumn Binding="{Binding finishPosition}" Header="Конечное" Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel HorizontalAlignment="Center"  Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="startButton" Content="Старт" Click="startButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
